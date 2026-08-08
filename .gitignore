@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+*.pyc
+assets/cutout_cache.png
+assets/debug_tone.png
