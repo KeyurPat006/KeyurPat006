@@ -3,6 +3,7 @@
 render langs.svg in the shared visual language.
 """
 import json
+import math
 import os
 import sys
 import urllib.request
@@ -54,12 +55,19 @@ def build_langs_svg(languages: list[dict]) -> str:
     s = [svg_open(w, h, font_subset="basic")]
     bar_x = pad + 110
     bar_w = w - bar_x - pad - 50
+    # Bar length uses sqrt(share) rather than the raw share: byte counts here
+    # span a ~300x range (HTML down to Shell), and a linear scale makes
+    # everything past the top two languages render sub-pixel. The percentage
+    # text stays the true linear figure -- only the visual bar is compressed,
+    # normalized so the largest language still fills the full track.
+    max_sqrt_frac = math.sqrt(top[0]["bytes"] / total_bytes) if top else 1
     for i, lang in enumerate(top):
         y = pad + i * row_h
         frac = lang["bytes"] / total_bytes
+        visual_frac = (math.sqrt(frac) / max_sqrt_frac) if max_sqrt_frac else 0
         s.append(f'<text x="{pad}" y="{y+14}" font-size="12" fill="{INK}">{esc(lang["name"])}</text>')
         s.append(f'<rect x="{bar_x}" y="{y+4}" width="{bar_w}" height="10" fill="{RULE}"/>')
-        s.append(f'<rect x="{bar_x}" y="{y+4}" width="{bar_w*frac:.1f}" height="10" fill="{lang["color"] or INK}"/>')
+        s.append(f'<rect x="{bar_x}" y="{y+4}" width="{bar_w*visual_frac:.1f}" height="10" fill="{lang["color"] or INK}"/>')
         pct = frac * 100
         s.append(
             f'<text x="{w-pad}" y="{y+14}" font-size="11" fill="{DIM}" text-anchor="end">'

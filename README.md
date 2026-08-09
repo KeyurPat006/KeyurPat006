@@ -18,7 +18,8 @@ accessible, deliberate interfaces.
 <a href="https://github.com/KeyurPat006/MAK_systems"><b>MAK Systems</b></a> — Desktop motel management app: staff login, double-entry accounting, AI rate recommendations.<br>
 <a href="https://github.com/KeyurPat006/laptop-airwriting"><b>Laptop Air-Writing</b></a> — Webcam air-writing recognition: MediaPipe tracking, EMNIST pretraining, on-device fine-tuning.<br>
 <a href="https://github.com/KeyurPat006/Digital_Accessibility_UCF"><b>Digital Accessibility</b></a> — Interactive demo simulating common accessibility challenges.<br>
-<a href="https://github.com/KeyurPat006/CandyCartV2"><b>Sweet Wheel Candy Carts</b></a> — Marketing site for a Central Florida event rental business.
+<a href="https://github.com/KeyurPat006/CandyCartV2"><b>Sweet Wheel Candy Carts</b></a> — Marketing site for a Central Florida event rental business.<br>
+<a href="https://github.com/KeyurPat006/fake-real-ai"><b>Real/Fake AI</b></a> — InceptionV3 transfer learning classifying real vs. AI-generated images on the CIFAKE dataset.
 </p>
 
 <p align="center"><img src="assets/heading-stack.svg" width="460" alt="stack"></p>
