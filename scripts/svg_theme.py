@@ -7,10 +7,20 @@ FONT_STACK = (
     "'JetBrains Mono', ui-monospace, 'Liberation Mono', 'DejaVu Sans Mono', "
     "'Noto Sans Mono', monospace"
 )
-INK = "#1f2328"
-DIM = "#6b7280"
-RULE = "#d0d7de"
+# fill="var(--ink)" etc. — actual values come from THEME_VARS below and flip
+# with the viewer's OS/browser color scheme, since that's the only signal an
+# <img>-embedded SVG on a GitHub README ever gets about page theme.
+INK = "var(--ink)"
+DIM = "var(--dim)"
+RULE = "var(--rule)"
 RAMP = " .`:-=+*cs#%@"
+
+THEME_VARS = (
+    "<style>"
+    ":root{--ink:#1f2328;--dim:#6b7280;--rule:#d0d7de;}"
+    "@media (prefers-color-scheme: dark){:root{--ink:#e6edf3;--dim:#9198a1;--rule:#3d444d;}}"
+    "</style>"
+)
 
 # name -> [(weight, style, woff2 filename), ...]
 FONT_SUBSETS = {
@@ -31,7 +41,7 @@ def svg_open(width: float, height: float, font_subset: str | None = None) -> str
     )
     if font_subset:
         out += font_face_css("JetBrains Mono", FONT_SUBSETS[font_subset])
-    out += f'<rect x="0" y="0" width="{width:.2f}" height="{height:.2f}" fill="white"/>'
+    out += THEME_VARS
     return out
 
 

@@ -9,8 +9,8 @@ import os
 
 from font_embed import font_face_css
 
-INK = "#1f2328"
-RULE = "#d0d7de"
+INK = "var(--ink)"
+RULE = "var(--rule)"
 WIDTH = 696.6  # matches the portrait's natural viewBox width (90 cols * 7.74)
 HEIGHT = 28.0
 FONT_SIZE = 13.0
@@ -26,7 +26,8 @@ def build(label: str, headings_font: str) -> str:
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {WIDTH:.2f} {HEIGHT:.2f}" '
         f'width="{WIDTH:.2f}" height="{HEIGHT:.2f}">'
         f'{font_face_css("JetBrains Mono", [("700", "normal", headings_font)])}'
-        f'<rect x="0" y="0" width="{WIDTH:.2f}" height="{HEIGHT:.2f}" fill="white"/>'
+        '<style>:root{--ink:#1f2328;--rule:#d0d7de;}'
+        '@media (prefers-color-scheme: dark){:root{--ink:#e6edf3;--rule:#3d444d;}}</style>'
         f'<text x="{pad}" y="{y_baseline:.2f}" font-family="\'JetBrains Mono\', ui-monospace, monospace" '
         f'font-weight="700" font-size="{FONT_SIZE}" letter-spacing="0.5" fill="{INK}">{label}</text>'
         f'<line x1="{rule_x:.2f}" y1="{y_rule:.2f}" x2="{WIDTH - pad:.2f}" y2="{y_rule:.2f}" '

@@ -74,7 +74,7 @@ def to_ascii_grid(gray: np.ndarray, cols: int) -> list[str]:
     return ["".join(RAMP[i] for i in row) for row in idx]
 
 
-def build_svg(rows: list[str], fill: str = "#1f2328", stagger: float = 0.09, dur: float = 0.5) -> str:
+def build_svg(rows: list[str], fill: str = "var(--ink)", stagger: float = 0.09, dur: float = 0.5) -> str:
     cols = max(len(r) for r in rows)
     width = cols * CHAR_W
     height = len(rows) * LINE_H
@@ -86,8 +86,11 @@ def build_svg(rows: list[str], fill: str = "#1f2328", stagger: float = 0.09, dur
         f'\'Liberation Mono\', \'DejaVu Sans Mono\', \'Noto Sans Mono\', monospace">'
     )
     parts.append(font_face_css("JetBrains Mono", [("400", "normal", "ramp.woff2")]))
-    parts.append(f'<rect x="0" y="0" width="{width:.2f}" height="{height:.2f}" fill="white"/>')
-    parts.append(f'<style>text{{font-size:{FONT_SIZE}px; fill:{fill};}}</style>')
+    parts.append(
+        '<style>:root{--ink:#1f2328;}'
+        '@media (prefers-color-scheme: dark){:root{--ink:#e6edf3;}}'
+        f'text{{font-size:{FONT_SIZE}px; fill:{fill};}}</style>'
+    )
 
     for i, row in enumerate(rows):
         row_w = len(row) * CHAR_W
