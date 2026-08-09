@@ -10,6 +10,17 @@ project manager to small local-business sites — with an eye for<br>
 accessible, deliberate interfaces.
 </blockquote>
 
+<p align="center"><img src="assets/heading-projects.svg" width="460" alt="projects"></p>
+
+<p>
+<a href="https://github.com/KeyurPat006/CleanVision"><b>CleanVision</b></a> — Aria smart-glasses room scanner: object detection, energy-waste analysis, live dashboard.<br>
+<a href="https://github.com/KeyurPat006/StackFlowRepo"><b>StackFlow</b></a> — AI-powered project manager for solo developers: task execution, AI chat, GitHub publishing.<br>
+<a href="https://github.com/KeyurPat006/MAK_systems"><b>MAK Systems</b></a> — Desktop motel management app: staff login, double-entry accounting, AI rate recommendations.<br>
+<a href="https://github.com/KeyurPat006/laptop-airwriting"><b>Laptop Air-Writing</b></a> — Webcam air-writing recognition: MediaPipe tracking, EMNIST pretraining, on-device fine-tuning.<br>
+<a href="https://github.com/KeyurPat006/Digital_Accessibility_UCF"><b>Digital Accessibility</b></a> — Interactive demo simulating common accessibility challenges.<br>
+<a href="https://github.com/KeyurPat006/CandyCartV2"><b>Sweet Wheel Candy Carts</b></a> — Marketing site for a Central Florida event rental business.
+</p>
+
 <p align="center"><img src="assets/heading-stack.svg" width="460" alt="stack"></p>
 
 <p align="center">
