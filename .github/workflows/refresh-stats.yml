@@ -1,4 +1,4 @@
-name: refresh stats
+name: refresh langs
 
 on:
   schedule:
@@ -16,15 +16,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: generate stats SVGs
+      - name: generate langs.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_LOGIN: ${{ github.repository_owner }}
-        run: python3 scripts/generate_stats.py
+        run: python3 scripts/generate_langs.py
 
       - name: commit if changed
         run: |
-          FILES="assets/stats.svg assets/streak.svg assets/langs.svg assets/year.svg"
+          FILES="assets/langs.svg"
           if [ -z "$(git status --porcelain -- $FILES)" ]; then
             echo "no changes"
             exit 0
