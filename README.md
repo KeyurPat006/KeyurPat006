@@ -1,4 +1,4 @@
-<p align="center">
+<p align="center"> 
   <img src="assets/portrait.svg" width="460" alt="ASCII self-portrait, typed out on load">
 </p>
 
